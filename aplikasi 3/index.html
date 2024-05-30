@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aplikasi Penjualan Barang</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+</head>
+
+<body>
+    <div class="container mt-5">
+        <h1 class="mb-4">Aplikasi Penjualan Barang</h1>
+        <div class="row">
+            <div class="col-md-6">
+                <form>
+                    <div class="form-group">
+                        <label for="nama">Nama Barang:</label>
+                        <input type="text" class="form-control" id="nama" placeholder="Masukkan Nama Barang">
+                    </div>
+                    <div class="form-group">
+                        <label for="harga">Harga:</label>
+                        <input type="number" class="form-control" id="harga" placeholder="Masukkan Harga">
+                    </div>
+                    <div class="form-group">
+                        <label for="jumlah">Jumlah:</label>
+                        <input type="number" class="form-control" id="jumlah" placeholder="Masukkan Jumlah">
+                    </div>
+                    <button type="submit" class="btn btn-primary">Tambah Barang</button>
+                </form>
+            </div>
+            <div class="col-md-6">
+                <h3>Daftar Barang</h3>
+                <ul id="daftar-barang" class="list-group">
+                    <!-- Daftar barang akan ditampilkan di sini -->
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS (Optional) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <!-- Custom JavaScript -->
+    <script>
+        $(document).ready(function () {
+            // Simpan data barang
+            $('form').submit(function (event) {
+                event.preventDefault();
+                var nama = $('#nama').val();
+                var harga = $('#harga').val();
+                var jumlah = $('#jumlah').val();
+                $('#daftar-barang').append('<li class="list-group-item">' + nama + ' - Harga: ' + harga + ' - Jumlah: ' + jumlah + '</li>');
+                // Kosongkan input setelah ditambahkan
+                $('#nama').val('');
+                $('#harga').val('');
+                $('#jumlah').val('');
+            });
+        });
+    </script>
+</body>
+
+</html>
